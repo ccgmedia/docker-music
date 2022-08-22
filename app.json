@@ -19,12 +19,12 @@
     "REPO_URL": {
       "description": "Enter the repository link that you want to deploy",
       "value": "https://github.com/missemily2022/HerokuBanBypass",
-      "required": true
+      "required": false
     },
     "PYTHON_FILE": {
       "description": "Name of the python file that you need to run [use -m if you need to run __main__.py from a folder]",
       "value": "main.py",
-      "required": true
+      "required": false
     },
      "OTHER_CMD": {
       "description": "If you need to run any bash command other than python specify here",
