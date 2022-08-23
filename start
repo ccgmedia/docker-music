@@ -19,4 +19,4 @@ git clone https://github.com/Myudi422/ccg-music ccgnimex
 cd ccgnimex
 pip3 install -U -r requirements.txt
 _externals
-python -m amime
+python -m AlexaMusic
