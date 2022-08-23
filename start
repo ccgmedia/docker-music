@@ -1,5 +1,3 @@
-#!/bin/bash
-
 _other_installs () {
    if [[ $OTHER_INSTALLS != "None" ]]
    then
@@ -19,5 +17,6 @@ _other_installs
 pip3 install -U pip
 git clone https://github.com/Myudi422/ccg-music ccgnimex
 cd ccgnimex
-docker build . -t ccgnimex
-docker run ccgnimex
+pip3 install -U -r requirements.txt
+_externals
+python -m amime
