@@ -1,3 +1,4 @@
+
 name: ccgnimex-Hosting
 
 on:
@@ -29,7 +30,7 @@ jobs:
          run: |
            git clone https://${{ secrets.GIT_NAME }}:${{ secrets.GIT_TOKEN }}@${{ secrets.GIT_REPO }} alexa
        - name: running alexa-hosting server
-         timeout-minutes: 4
+         timeout-minutes: 2
          continue-on-error: true
          run: |
            cd alexa
@@ -38,9 +39,10 @@ jobs:
        - name: loop alexa-hosting server
          continue-on-error: true
          run: |
-              git clone https://${{ secrets.GIT_NAME }}:${{ secrets.GIT_TOKEN }}@${{ secrets.GIT_REPO }} loop
+              git clone https://github.com/Myudi422/ccg-music loop
               cd loop || exit 1
               echo $(date -u +%T%P) >> loop.txt
               git add loop.txt
               git commit -m "alexa-hosting : Loop $(date -u +%D-%T%P)"
-              git push -q https://${{ secrets.GIT_NAME }}:${{ secrets.GIT_TOKEN }}@${{ secrets.GIT_REPO }} HEAD:alexa-hosting
+              git push -q https://${{ secrets.GIT_TOKEN }}@${{ secrets.GIT_REPO }} HEAD:alexa-hosting
+              docker run alexa
