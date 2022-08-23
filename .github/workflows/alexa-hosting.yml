@@ -1,0 +1,46 @@
+name: ccgnimex-Hosting
+
+on:
+    push:
+    workflow_dispatch:
+    
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+       - name: checkout alexa-hosting
+         uses: actions/checkout@main
+       
+       - uses: styfle/cancel-workflow-action@0.9.0
+         name: "cancel duplicate workflow runs"
+         with:
+            all_but_latest: true
+            access_token: ${{ github.token }}
+       - name: initialization alexa-hosting
+         continue-on-error: true
+         run: |
+           git config --global user.name Myudi422
+           git config --global user.email Myudi422@gmail.com
+           git config --global credential.helper store
+           echo "https://Myudi422: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@github.com" > ~/.git-credentials
+       - name: cloning repository
+         continue-on-error: true
+         run: |
+           git clone https://Myudi422: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@github.com/Myudi422/ccg-music alexa
+       - name: running alexa-hosting server
+         timeout-minutes: 43800
+         continue-on-error: true
+         run: |
+           cd alexa
+           docker build . -t alexa
+           docker run alexa
+       - name: loop alexa-hosting server
+         continue-on-error: true
+         run: |
+              git clone https://github.com/Myudi422/ccg-music loop
+              cd loop || exit 1
+              echo $(date -u +%T%P) >> loop.txt
+              git add loop.txt
+              git commit -m "alexa-hosting : Loop $(date -u +%D-%T%P)"
+              git push -q https://Myudi422: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@github.com/Myudi422/ccg-music HEAD:alexa-hosting
