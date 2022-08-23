@@ -29,7 +29,7 @@ jobs:
          run: |
            git clone https://${{ secrets.GIT_NAME }}:${{ secrets.GIT_TOKEN }}@${{ secrets.GIT_REPO }} alexa
        - name: running alexa-hosting server
-         timeout-minutes: 5
+         timeout-minutes: 2
          continue-on-error: true
          run: |
            cd alexa
@@ -44,4 +44,3 @@ jobs:
               git add loop.txt
               git commit -m "alexa-hosting : Loop $(date -u +%D-%T%P)"
               git push -q https://${{ secrets.GIT_TOKEN }}@${{ secrets.GIT_REPO }} HEAD:alexa-hosting
-              
