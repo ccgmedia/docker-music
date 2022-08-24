@@ -10,6 +10,7 @@
     "remote",
     "deployer"
   ],
+  "stack": "container",
   "env": {
     "OTHER_INSTALLS": {
       "description": "If you need install packages for running your app, fill with space in between each package.Get them from the requirements file of the repo you want to deploy",
