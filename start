@@ -15,7 +15,7 @@ apt update && apt upgrade -y
 apt install git -y
 _other_installs
 pip3 install -U pip
-git clone https://github.com/Myudi422/ccg-music ccgnimex
+git clone https://github.com/Myudi422/ccg-yukimusic ccgnimex
 cd ccgnimex
 _externals
-python -m AlexaMusic
+python -m YukkiMusic
