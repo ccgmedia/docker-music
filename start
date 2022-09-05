@@ -17,6 +17,5 @@ _other_installs
 pip3 install -U pip
 git clone https://github.com/Myudi422/ccg-yuki2.0 ccgnimex
 cd ccgnimex
-pip3 install --no-cache-dir --upgrade --requirement requirements.txt
 _externals
 python -m Yukki
